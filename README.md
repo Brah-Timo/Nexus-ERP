@@ -30,7 +30,7 @@
 
 ### Prerequisites
 - **PostgreSQL 14+** (required — the only external dependency)
-
+```
 <img width="1894" height="808" alt="image" src="https://github.com/user-attachments/assets/1ff16096-cc9c-4b97-bcd8-919a67c09f8b" />
 
 
@@ -38,16 +38,16 @@
 
 
 - **Go 1.21+** (for building from source)
-
+```bash
 Download Go language MSI 
 https://golang.org/dl/go1.15.1.windows-amd64.msi
-
+```
 <img width="495" height="387" alt="image" src="https://github.com/user-attachments/assets/86578a00-807f-49ef-970a-28c01e74a99e" />
 
 
-
+```bash
 - **Node.js 20+** (for building from source)
-
+```
 <img width="757" height="579" alt="image" src="https://github.com/user-attachments/assets/2bb4c7d7-a4ff-4d86-acf4-07deeaaef8f0" />
 
 
@@ -58,7 +58,7 @@ https://golang.org/dl/go1.15.1.windows-amd64.msi
 # 1. Extract the zip
 unzip nexus-erp-v1.0.0.zip
 cd nexus-erp-v1.0.0
-
+```
 <img width="370" height="29" alt="image" src="https://github.com/user-attachments/assets/47a51a62-b4bd-465a-b31c-7059a0551771" />
 
 
@@ -79,7 +79,7 @@ psql -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE nexus_erp TO nexus;"
 # 5. Run Nexus ERP (migrations run automatically on first start)
 ./nexus-erp          # Linux/macOS
 nexus-erp.exe        # Windows
-
+```
 <img width="1465" height="468" alt="image" src="https://github.com/user-attachments/assets/67e363ab-51bc-404e-8c15-8fb0480bdbe3" />
 
 
