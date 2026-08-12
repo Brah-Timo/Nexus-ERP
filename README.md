@@ -33,10 +33,6 @@
 ```
 <img width="1894" height="808" alt="image" src="https://github.com/user-attachments/assets/1ff16096-cc9c-4b97-bcd8-919a67c09f8b" />
 
-
-
-
-
 - **Go 1.21+** (for building from source)
 ```bash
 Download Go language MSI 
@@ -44,13 +40,9 @@ https://golang.org/dl/go1.15.1.windows-amd64.msi
 ```
 <img width="495" height="387" alt="image" src="https://github.com/user-attachments/assets/86578a00-807f-49ef-970a-28c01e74a99e" />
 
-
-```bash
 - **Node.js 20+** (for building from source)
 ```
 <img width="757" height="579" alt="image" src="https://github.com/user-attachments/assets/2bb4c7d7-a4ff-4d86-acf4-07deeaaef8f0" />
-
-
 
 ### Option 1 — Run the Pre-built Binary
 
@@ -61,7 +53,7 @@ cd nexus-erp-v1.0.0
 ```
 <img width="370" height="29" alt="image" src="https://github.com/user-attachments/assets/47a51a62-b4bd-465a-b31c-7059a0551771" />
 
-
+```bash
 # 2. Set up environment
 cp .env.example .env
 # Edit .env: set DATABASE_URL to your PostgreSQL connection string
@@ -82,7 +74,7 @@ nexus-erp.exe        # Windows
 ```
 <img width="1465" height="468" alt="image" src="https://github.com/user-attachments/assets/67e363ab-51bc-404e-8c15-8fb0480bdbe3" />
 
-
+```bash
 # 6. Open in browser
 # http://localhost:8080
 # Login: admin / Admin@123456
@@ -95,8 +87,6 @@ nexus-erp.exe        # Windows
 
 ### HR
 <img width="1512" height="824" alt="image" src="https://github.com/user-attachments/assets/cae5a3af-1a97-4a31-8aa8-ac08da7cb3d7" />
-
-
 
 ### Option 2 — Docker Compose (Recommended for production)
 
