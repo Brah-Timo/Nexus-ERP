@@ -1,0 +1,81 @@
+version: '3.9'
+
+services:
+  # ─── PostgreSQL Database ─────────────────────────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    container_name: nexus-erp-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB:       nexus_erp
+      POSTGRES_USER:     nexus
+      POSTGRES_PASSWORD: nexus_password
+      PGDATA:            /var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nexus -d nexus_erp"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    networks:
+      - nexus-net
+
+  # ─── Nexus ERP Application ───────────────────────────────────────────────
+  nexus-erp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nexus-erp-app
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      APP_ENV:      production
+      APP_PORT:     "8080"
+      DATABASE_URL: postgres://nexus:nexus_password@postgres:5432/nexus_erp?sslmode=disable
+      JWT_SECRET:   "CHANGE_ME_IN_PRODUCTION_USE_RANDOM_64_CHAR_STRING"
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/api/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+    networks:
+      - nexus-net
+
+  # ─── Optional: pgAdmin for DB management ─────────────────────────────────
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: nexus-erp-pgadmin
+    restart: unless-stopped
+    profiles: ["tools"]          # Only starts with: docker compose --profile tools up
+    environment:
+      PGADMIN_DEFAULT_EMAIL:    admin@nexus-erp.local
+      PGADMIN_DEFAULT_PASSWORD: pgadmin_password
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      - postgres
+    networks:
+      - nexus-net
+
+volumes:
+  postgres_data:
+    name: nexus-erp-postgres-data
+  pgadmin_data:
+    name: nexus-erp-pgadmin-data
+
+networks:
+  nexus-net:
+    name: nexus-erp-network
+    driver: bridge
