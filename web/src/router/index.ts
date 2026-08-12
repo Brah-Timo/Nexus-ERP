@@ -674,6 +674,162 @@ const routes: RouteRecordRaw[] = [
     meta: { title: 'Quality Reports', icon: 'BarChart3', group: 'Quality' }
   },
 
+  // ── Helpdesk / Support ────────────────────────────────────────────────────
+  {
+    path: '/helpdesk',
+    name: 'HelpdeskDashboard',
+    component: () => import('@/modules/helpdesk/HelpdeskDashboard.vue'),
+    meta: { title: 'Support Dashboard', icon: 'Headphones', group: 'Helpdesk' }
+  },
+  {
+    path: '/helpdesk/tickets',
+    name: 'Tickets',
+    component: () => import('@/modules/helpdesk/Tickets.vue'),
+    meta: { title: 'Tickets', icon: 'Ticket', group: 'Helpdesk' }
+  },
+  {
+    path: '/helpdesk/categories',
+    name: 'TicketCategories',
+    component: () => import('@/modules/helpdesk/TicketCategories.vue'),
+    meta: { title: 'Ticket Categories', icon: 'Tag', group: 'Helpdesk' }
+  },
+  {
+    path: '/helpdesk/agents',
+    name: 'HelpdeskAgents',
+    component: () => import('@/modules/helpdesk/Agents.vue'),
+    meta: { title: 'Agents', icon: 'UserCheck', group: 'Helpdesk' }
+  },
+  {
+    path: '/helpdesk/assignments',
+    name: 'TicketAssignments',
+    component: () => import('@/modules/helpdesk/TicketAssignments.vue'),
+    meta: { title: 'Ticket Assignments', icon: 'UserPlus', group: 'Helpdesk' }
+  },
+  {
+    path: '/helpdesk/escalations',
+    name: 'Escalations',
+    component: () => import('@/modules/helpdesk/Escalations.vue'),
+    meta: { title: 'Escalations', icon: 'AlertTriangle', group: 'Helpdesk' }
+  },
+  {
+    path: '/helpdesk/sla',
+    name: 'SLATracking',
+    component: () => import('@/modules/helpdesk/SLATracking.vue'),
+    meta: { title: 'SLA Tracking', icon: 'Timer', group: 'Helpdesk' }
+  },
+  {
+    path: '/helpdesk/csat',
+    name: 'CustomerSatisfaction',
+    component: () => import('@/modules/helpdesk/CustomerSatisfaction.vue'),
+    meta: { title: 'Customer Satisfaction', icon: 'Star', group: 'Helpdesk' }
+  },
+  {
+    path: '/helpdesk/reports',
+    name: 'SupportReports',
+    component: () => import('@/modules/helpdesk/SupportReports.vue'),
+    meta: { title: 'Support Reports', icon: 'BarChart3', group: 'Helpdesk' }
+  },
+
+  // ── Assets Management ─────────────────────────────────────────────────────
+  {
+    path: '/assets',
+    name: 'AssetsDashboard',
+    component: () => import('@/modules/assets/AssetsDashboard.vue'),
+    meta: { title: 'Assets Dashboard', icon: 'Package', group: 'Assets' }
+  },
+  {
+    path: '/assets/fixed',
+    name: 'FixedAssets',
+    component: () => import('@/modules/assets/FixedAssets.vue'),
+    meta: { title: 'Fixed Assets', icon: 'Archive', group: 'Assets' }
+  },
+  {
+    path: '/assets/categories',
+    name: 'AssetCategories',
+    component: () => import('@/modules/assets/AssetCategories.vue'),
+    meta: { title: 'Asset Categories', icon: 'FolderOpen', group: 'Assets' }
+  },
+  {
+    path: '/assets/locations',
+    name: 'AssetLocations',
+    component: () => import('@/modules/assets/AssetLocations.vue'),
+    meta: { title: 'Asset Locations', icon: 'MapPin', group: 'Assets' }
+  },
+  {
+    path: '/assets/transfers',
+    name: 'AssetTransfers',
+    component: () => import('@/modules/assets/AssetTransfers.vue'),
+    meta: { title: 'Asset Transfers', icon: 'ArrowLeftRight', group: 'Assets' }
+  },
+  {
+    path: '/assets/depreciation',
+    name: 'AssetDepreciation',
+    component: () => import('@/modules/assets/AssetDepreciation.vue'),
+    meta: { title: 'Asset Depreciation', icon: 'TrendingDown', group: 'Assets' }
+  },
+  {
+    path: '/assets/maintenance',
+    name: 'AssetMaintenance',
+    component: () => import('@/modules/assets/AssetMaintenance.vue'),
+    meta: { title: 'Asset Maintenance', icon: 'Wrench', group: 'Assets' }
+  },
+  {
+    path: '/assets/reports',
+    name: 'AssetsReports',
+    component: () => import('@/modules/assets/AssetsReports.vue'),
+    meta: { title: 'Assets Reports', icon: 'BarChart3', group: 'Assets' }
+  },
+
+  // ── Budgeting & Planning ──────────────────────────────────────────────────
+  {
+    path: '/budgeting',
+    name: 'BudgetDashboard',
+    component: () => import('@/modules/budgeting/BudgetDashboard.vue'),
+    meta: { title: 'Budget Dashboard', icon: 'BarChart2', group: 'Budgeting' }
+  },
+  {
+    path: '/budgeting/categories',
+    name: 'BudgetCategories',
+    component: () => import('@/modules/budgeting/BudgetCategories.vue'),
+    meta: { title: 'Budget Categories', icon: 'Tag', group: 'Budgeting' }
+  },
+  {
+    path: '/budgeting/annual',
+    name: 'AnnualBudgets',
+    component: () => import('@/modules/budgeting/AnnualBudgets.vue'),
+    meta: { title: 'Annual Budgets', icon: 'CalendarDays', group: 'Budgeting' }
+  },
+  {
+    path: '/budgeting/departments',
+    name: 'DepartmentBudgets',
+    component: () => import('@/modules/budgeting/DepartmentBudgets.vue'),
+    meta: { title: 'Department Budgets', icon: 'Building2', group: 'Budgeting' }
+  },
+  {
+    path: '/budgeting/vs-actual',
+    name: 'BudgetVsActual',
+    component: () => import('@/modules/budgeting/BudgetVsActual.vue'),
+    meta: { title: 'Budget vs Actual', icon: 'TrendingUp', group: 'Budgeting' }
+  },
+  {
+    path: '/budgeting/revisions',
+    name: 'BudgetRevisions',
+    component: () => import('@/modules/budgeting/BudgetRevisions.vue'),
+    meta: { title: 'Budget Revisions', icon: 'FilePen', group: 'Budgeting' }
+  },
+  {
+    path: '/budgeting/commitments',
+    name: 'Commitments',
+    component: () => import('@/modules/budgeting/Commitments.vue'),
+    meta: { title: 'Commitments', icon: 'Handshake', group: 'Budgeting' }
+  },
+  {
+    path: '/budgeting/reports',
+    name: 'BudgetReports',
+    component: () => import('@/modules/budgeting/BudgetReports.vue'),
+    meta: { title: 'Budget Reports', icon: 'BarChart3', group: 'Budgeting' }
+  },
+
   // ── Catch-all ─────────────────────────────────────────────────────────────
   {
     path: '/:pathMatch(.*)*',

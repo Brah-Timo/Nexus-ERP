@@ -702,4 +702,164 @@ export const qualityAPI = {
   getReports: (params?: Record<string, string>) => api.get('/quality/reports', { params }),
 }
 
+// ── Helpdesk / Support ────────────────────────────────────────────────────────
+export const helpdeskAPI = {
+  // Dashboard
+  getDashboard: () => api.get('/helpdesk/dashboard'),
+
+  // Tickets
+  listTickets:       (params?: Record<string, string>) => api.get('/helpdesk/tickets', { params }),
+  getTicket:         (id: string) => api.get(`/helpdesk/tickets/${id}`),
+  createTicket:      (data: unknown) => api.post('/helpdesk/tickets', data),
+  updateTicket:      (id: string, data: unknown) => api.put(`/helpdesk/tickets/${id}`, data),
+  updateTicketStatus:(id: string, data: unknown) => api.put(`/helpdesk/tickets/${id}/status`, data),
+  deleteTicket:      (id: string) => api.delete(`/helpdesk/tickets/${id}`),
+
+  // Comments
+  addComment: (ticketId: string, data: unknown) => api.post(`/helpdesk/tickets/${ticketId}/comments`, data),
+
+  // Assignments
+  listAssignments: (params?: Record<string, string>) => api.get('/helpdesk/assignments', { params }),
+  assignTicket:    (ticketId: string, data: unknown) => api.post(`/helpdesk/tickets/${ticketId}/assign`, data),
+
+  // Categories
+  listCategories:  () => api.get('/helpdesk/categories'),
+  createCategory:  (data: unknown) => api.post('/helpdesk/categories', data),
+  updateCategory:  (id: string, data: unknown) => api.put(`/helpdesk/categories/${id}`, data),
+  deleteCategory:  (id: string) => api.delete(`/helpdesk/categories/${id}`),
+
+  // Agents
+  listAgents:   (params?: Record<string, string>) => api.get('/helpdesk/agents', { params }),
+  createAgent:  (data: unknown) => api.post('/helpdesk/agents', data),
+  updateAgent:  (id: string, data: unknown) => api.put(`/helpdesk/agents/${id}`, data),
+  deleteAgent:  (id: string) => api.delete(`/helpdesk/agents/${id}`),
+
+  // Escalations
+  listEscalations:         (params?: Record<string, string>) => api.get('/helpdesk/escalations', { params }),
+  createEscalation:        (data: unknown) => api.post('/helpdesk/escalations', data),
+  updateEscalationStatus:  (id: string, data: unknown) => api.put(`/helpdesk/escalations/${id}/status`, data),
+  deleteEscalation:        (id: string) => api.delete(`/helpdesk/escalations/${id}`),
+
+  // SLA Policies
+  listSLAPolicies:  () => api.get('/helpdesk/sla-policies'),
+  createSLAPolicy:  (data: unknown) => api.post('/helpdesk/sla-policies', data),
+  updateSLAPolicy:  (id: string, data: unknown) => api.put(`/helpdesk/sla-policies/${id}`, data),
+  deleteSLAPolicy:  (id: string) => api.delete(`/helpdesk/sla-policies/${id}`),
+  getSLATracking:   () => api.get('/helpdesk/sla-tracking'),
+
+  // CSAT
+  listCSAT:   (params?: Record<string, string>) => api.get('/helpdesk/csat', { params }),
+  createCSAT: (data: unknown) => api.post('/helpdesk/csat', data),
+
+  // Reports
+  getReports: (params?: Record<string, string>) => api.get('/helpdesk/reports', { params }),
+}
+
+// ── Assets Management ─────────────────────────────────────────────────────────
+export const assetsAPI = {
+  // Dashboard
+  getDashboard: () => api.get('/assets/dashboard'),
+
+  // Fixed Assets
+  listAssets:   (params?: Record<string, string>) => api.get('/assets/assets', { params }),
+  getAsset:     (id: string) => api.get(`/assets/assets/${id}`),
+  createAsset:  (data: unknown) => api.post('/assets/assets', data),
+  updateAsset:  (id: string, data: unknown) => api.put(`/assets/assets/${id}`, data),
+  deleteAsset:  (id: string) => api.delete(`/assets/assets/${id}`),
+  disposeAsset: (id: string, data: unknown) => api.post(`/assets/assets/${id}/dispose`, data),
+
+  // Categories
+  listCategories:  () => api.get('/assets/categories'),
+  createCategory:  (data: unknown) => api.post('/assets/categories', data),
+  updateCategory:  (id: string, data: unknown) => api.put(`/assets/categories/${id}`, data),
+  deleteCategory:  (id: string) => api.delete(`/assets/categories/${id}`),
+
+  // Locations
+  listLocations:  () => api.get('/assets/locations'),
+  createLocation: (data: unknown) => api.post('/assets/locations', data),
+  updateLocation: (id: string, data: unknown) => api.put(`/assets/locations/${id}`, data),
+  deleteLocation: (id: string) => api.delete(`/assets/locations/${id}`),
+
+  // Transfers
+  listTransfers:    (params?: Record<string, string>) => api.get('/assets/transfers', { params }),
+  createTransfer:   (data: unknown) => api.post('/assets/transfers', data),
+  approveTransfer:  (id: string) => api.put(`/assets/transfers/${id}/approve`, {}),
+  completeTransfer: (id: string) => api.put(`/assets/transfers/${id}/complete`, {}),
+  deleteTransfer:   (id: string) => api.delete(`/assets/transfers/${id}`),
+
+  // Depreciation
+  listDepreciation:    (params?: Record<string, string>) => api.get('/assets/depreciation', { params }),
+  generateDepreciation:(data: unknown) => api.post('/assets/depreciation/generate', data),
+  postDepreciation:    (data: unknown) => api.post('/assets/depreciation/post', data),
+
+  // Maintenance
+  listMaintenance:    (params?: Record<string, string>) => api.get('/assets/maintenance', { params }),
+  createMaintenance:  (data: unknown) => api.post('/assets/maintenance', data),
+  updateMaintenance:  (id: string, data: unknown) => api.put(`/assets/maintenance/${id}`, data),
+  completeMaintenance:(id: string, data: unknown) => api.put(`/assets/maintenance/${id}/complete`, data),
+  deleteMaintenance:  (id: string) => api.delete(`/assets/maintenance/${id}`),
+
+  // Reports
+  getReports: (params?: Record<string, string>) => api.get('/assets/reports', { params }),
+}
+
+export const budgetingAPI = {
+  // Dashboard
+  getDashboard: () => api.get('/budgeting/dashboard'),
+
+  // Budget Categories
+  listCategories: () => api.get('/budgeting/categories'),
+  createCategory: (data: Record<string, unknown>) => api.post('/budgeting/categories', data),
+  updateCategory: (id: string, data: Record<string, unknown>) => api.put(`/budgeting/categories/${id}`, data),
+  deleteCategory: (id: string) => api.delete(`/budgeting/categories/${id}`),
+
+  // Annual Budgets
+  listAnnualBudgets: (params?: Record<string, string>) => api.get('/budgeting/annual', { params }),
+  getAnnualBudget: (id: string) => api.get(`/budgeting/annual/${id}`),
+  createAnnualBudget: (data: Record<string, unknown>) => api.post('/budgeting/annual', data),
+  updateAnnualBudget: (id: string, data: Record<string, unknown>) => api.put(`/budgeting/annual/${id}`, data),
+  deleteAnnualBudget: (id: string) => api.delete(`/budgeting/annual/${id}`),
+  approveBudget: (id: string) => api.put(`/budgeting/annual/${id}/approve`, {}),
+  lockBudget: (id: string) => api.put(`/budgeting/annual/${id}/lock`, {}),
+
+  // Line Items
+  listLineItems: (params?: Record<string, string>) => api.get('/budgeting/line-items', { params }),
+  createLineItem: (data: Record<string, unknown>) => api.post('/budgeting/line-items', data),
+  updateLineItem: (id: string, data: Record<string, unknown>) => api.put(`/budgeting/line-items/${id}`, data),
+  deleteLineItem: (id: string) => api.delete(`/budgeting/line-items/${id}`),
+
+  // Department Budgets
+  listDepartmentBudgets: (params?: Record<string, string>) => api.get('/budgeting/departments', { params }),
+  createDepartmentBudget: (data: Record<string, unknown>) => api.post('/budgeting/departments', data),
+  updateDepartmentBudget: (id: string, data: Record<string, unknown>) => api.put(`/budgeting/departments/${id}`, data),
+  deleteDepartmentBudget: (id: string) => api.delete(`/budgeting/departments/${id}`),
+
+  // Budget vs Actual
+  getBudgetVsActual: (params?: Record<string, string>) => api.get('/budgeting/vs-actual', { params }),
+
+  // Revisions
+  listRevisions: (params?: Record<string, string>) => api.get('/budgeting/revisions', { params }),
+  createRevision: (data: Record<string, unknown>) => api.post('/budgeting/revisions', data),
+  updateRevision: (id: string, data: Record<string, unknown>) => api.put(`/budgeting/revisions/${id}`, data),
+  approveRevision: (id: string) => api.put(`/budgeting/revisions/${id}/approve`, {}),
+  deleteRevision: (id: string) => api.delete(`/budgeting/revisions/${id}`),
+
+  // Commitments
+  listCommitments: (params?: Record<string, string>) => api.get('/budgeting/commitments', { params }),
+  createCommitment: (data: Record<string, unknown>) => api.post('/budgeting/commitments', data),
+  updateCommitment: (id: string, data: Record<string, unknown>) => api.put(`/budgeting/commitments/${id}`, data),
+  approveCommitment: (id: string) => api.put(`/budgeting/commitments/${id}/approve`, {}),
+  fulfillCommitment: (id: string, data: Record<string, unknown>) => api.put(`/budgeting/commitments/${id}/fulfill`, data),
+  cancelCommitment: (id: string) => api.put(`/budgeting/commitments/${id}/cancel`, {}),
+  deleteCommitment: (id: string) => api.delete(`/budgeting/commitments/${id}`),
+
+  // Actuals
+  listActuals: (params?: Record<string, string>) => api.get('/budgeting/actuals', { params }),
+  createActual: (data: Record<string, unknown>) => api.post('/budgeting/actuals', data),
+  postActuals: (ids: string[]) => api.post('/budgeting/actuals/post', { ids }),
+
+  // Reports
+  getReports: (params?: Record<string, string>) => api.get('/budgeting/reports', { params }),
+}
+
 export default api

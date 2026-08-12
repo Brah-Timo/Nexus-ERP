@@ -72,7 +72,21 @@ import {
   BarChart3 as BarChart3Icon,
   ShieldCheck,
   ClipboardCheck,
-  AlertOctagon
+  AlertOctagon,
+  Headphones,
+  LifeBuoy,
+  Star,
+  Archive,
+  MapPin,
+  FolderOpen,
+  TrendingDown,
+  UserCheck as UserCheckHd,
+  UserPlus as UserPlusHd,
+  Tag as TagHd,
+  TimerIcon,
+  Tag,
+  FilePen,
+  Handshake
 } from 'lucide-vue-next'
 
 const props = defineProps<{ collapsed: boolean }>()
@@ -92,6 +106,9 @@ const expandedGroups = ref<Record<string, boolean>>({
   Maintenance: false,
   Fleet: false,
   Quality: false,
+  Helpdesk: false,
+  Assets: false,
+  Budgeting: false,
   System: false,
 })
 
@@ -225,6 +242,40 @@ const navItems: NavItem[] = [
     { label: 'Non-Conformities',   icon: AlertOctagon,    to: '/quality/non-conformities' },
     { label: 'Corrective Actions', icon: Wrench,          to: '/quality/corrective-actions' },
     { label: 'Reports',            icon: BarChart3,       to: '/quality/reports' },
+  ]},
+
+  { label: 'Helpdesk', icon: Headphones, group: 'Helpdesk', children: [
+    { label: 'Support Dashboard',     icon: LifeBuoy,      to: '/helpdesk' },
+    { label: 'Tickets',               icon: FileText,      to: '/helpdesk/tickets' },
+    { label: 'Ticket Categories',     icon: TagHd,         to: '/helpdesk/categories' },
+    { label: 'Agents',                icon: UserCheckHd,   to: '/helpdesk/agents' },
+    { label: 'Ticket Assignments',    icon: UserPlusHd,    to: '/helpdesk/assignments' },
+    { label: 'Escalations',           icon: Flag,          to: '/helpdesk/escalations' },
+    { label: 'SLA Tracking',          icon: TimerIcon,     to: '/helpdesk/sla' },
+    { label: 'Customer Satisfaction', icon: Star,          to: '/helpdesk/csat' },
+    { label: 'Support Reports',       icon: BarChart3,     to: '/helpdesk/reports' },
+  ]},
+
+  { label: 'Assets', icon: Archive, group: 'Assets', children: [
+    { label: 'Assets Dashboard',  icon: BarChart2,     to: '/assets' },
+    { label: 'Fixed Assets',      icon: Archive,       to: '/assets/fixed' },
+    { label: 'Categories',        icon: FolderOpen,    to: '/assets/categories' },
+    { label: 'Locations',         icon: MapPin,        to: '/assets/locations' },
+    { label: 'Transfers',         icon: ArrowLeftRight, to: '/assets/transfers' },
+    { label: 'Depreciation',      icon: TrendingDown,  to: '/assets/depreciation' },
+    { label: 'Maintenance',       icon: Wrench,        to: '/assets/maintenance' },
+    { label: 'Assets Reports',    icon: BarChart3,     to: '/assets/reports' },
+  ]},
+
+  { label: 'Budgeting & Planning', icon: BarChart2, group: 'Budgeting', children: [
+    { label: 'Budget Dashboard',    icon: BarChart2,    to: '/budgeting' },
+    { label: 'Budget Categories',   icon: Tag,          to: '/budgeting/categories' },
+    { label: 'Annual Budgets',      icon: CalendarDays, to: '/budgeting/annual' },
+    { label: 'Department Budgets',  icon: Building2,    to: '/budgeting/departments' },
+    { label: 'Budget vs Actual',    icon: TrendingUp,   to: '/budgeting/vs-actual' },
+    { label: 'Budget Revisions',    icon: FilePen,      to: '/budgeting/revisions' },
+    { label: 'Commitments',         icon: Handshake,    to: '/budgeting/commitments' },
+    { label: 'Budget Reports',      icon: BarChart3,    to: '/budgeting/reports' },
   ]},
 
   { label: 'Settings', icon: Settings, group: 'System', children: [
