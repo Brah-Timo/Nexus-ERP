@@ -41,8 +41,11 @@ https://golang.org/dl/go1.15.1.windows-amd64.msi
 <img width="495" height="387" alt="image" src="https://github.com/user-attachments/assets/86578a00-807f-49ef-970a-28c01e74a99e" />
 
 - **Node.js 20+** (for building from source)
-```
+
 <img width="757" height="579" alt="image" src="https://github.com/user-attachments/assets/2bb4c7d7-a4ff-4d86-acf4-07deeaaef8f0" />
+
+```
+
 
 ### Option 1 — Run the Pre-built Binary
 
