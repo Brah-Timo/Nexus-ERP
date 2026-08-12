@@ -1,6 +1,7 @@
+```markdown
 # Nexus ERP
 
-**Ultra-Professional Algerian ERP System** — Single Binary Deployment
+**Ultra-Professional Algerian ERP System — Single Binary Deployment**
 
 > A complete Enterprise Resource Planning solution built with Go + Vue 3, packaged as a single executable with zero external dependencies (except PostgreSQL).
 
@@ -29,8 +30,26 @@
 
 ### Prerequisites
 - **PostgreSQL 14+** (required — the only external dependency)
+
+<img width="1894" height="808" alt="image" src="https://github.com/user-attachments/assets/2d6b871e-de8b-4085-8327-a7b0c8574e03" />
+
+
+
+
 - **Go 1.21+** (for building from source)
+
+Download Go language MSI 
+https://golang.org/dl/go1.15.1.windows-amd64.msi
+
+<img width="495" height="387" alt="image" src="https://github.com/user-attachments/assets/86578a00-807f-49ef-970a-28c01e74a99e" />
+
+
+
 - **Node.js 20+** (for building from source)
+
+<img width="757" height="579" alt="image" src="https://github.com/user-attachments/assets/2bb4c7d7-a4ff-4d86-acf4-07deeaaef8f0" />
+
+
 
 ### Option 1 — Run the Pre-built Binary
 
@@ -38,6 +57,9 @@
 # 1. Extract the zip
 unzip nexus-erp-v1.0.0.zip
 cd nexus-erp-v1.0.0
+
+<img width="370" height="29" alt="image" src="https://github.com/user-attachments/assets/47a51a62-b4bd-465a-b31c-7059a0551771" />
+
 
 # 2. Set up environment
 cp .env.example .env
@@ -57,10 +79,23 @@ psql -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE nexus_erp TO nexus;"
 ./nexus-erp          # Linux/macOS
 nexus-erp.exe        # Windows
 
+<img width="1465" height="468" alt="image" src="https://github.com/user-attachments/assets/67e363ab-51bc-404e-8c15-8fb0480bdbe3" />
+
+
 # 6. Open in browser
 # http://localhost:8080
 # Login: admin / Admin@123456
 ```
+
+<img width="1509" height="823" alt="image" src="https://github.com/user-attachments/assets/cc532996-18c2-46d5-b96e-4e4458c250a7" />
+
+### CRM
+<img width="1508" height="822" alt="image" src="https://github.com/user-attachments/assets/b9a3bcbc-e46f-43dd-93ac-1cd7ab72c9ef" />
+
+### HR
+<img width="1512" height="824" alt="image" src="https://github.com/user-attachments/assets/cae5a3af-1a97-4a31-8aa8-ac08da7cb3d7" />
+
+
 
 ### Option 2 — Docker Compose (Recommended for production)
 
@@ -381,3 +416,4 @@ Copyright © 2026 Nexus ERP. All rights reserved.
 ---
 
 > Built with ❤️ for Algerian businesses.
+```
