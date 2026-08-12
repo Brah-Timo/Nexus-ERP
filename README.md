@@ -4,7 +4,8 @@
 
 
 
-<img width="1614" height="991" alt="chrome_lV1RCeysOi" src="https://github.com/user-attachments/assets/d343387d-9b50-4719-b88d-66a4e39866d9" />
+![Nexus ERP Demo](assetNexus-ERP.gif)
+
 
 
 ```markdown
