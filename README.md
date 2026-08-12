@@ -4,7 +4,8 @@
 
 
 
-![Nexus ERP Demo](assetNexus-ERP.gif)
+![Nexus ERP Demo](assets/Nexus-ERP.gif)
+
 
 
 
