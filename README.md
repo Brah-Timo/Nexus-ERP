@@ -31,7 +31,8 @@
 ### Prerequisites
 - **PostgreSQL 14+** (required — the only external dependency)
 
-<img width="1894" height="808" alt="image" src="https://github.com/user-attachments/assets/5ef485a9-a87a-4c89-9d57-fb84093d65cf" />
+<img width="1894" height="808" alt="image" src="https://github.com/user-attachments/assets/1ff16096-cc9c-4b97-bcd8-919a67c09f8b" />
+
 
 
 
