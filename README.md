@@ -1,6 +1,7 @@
 ```markdown
 # Nexus ERP
 
+
 **Ultra-Professional Algerian ERP System — Single Binary Deployment**
 
 > A complete Enterprise Resource Planning solution built with Go + Vue 3, packaged as a single executable with zero external dependencies (except PostgreSQL).
