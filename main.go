@@ -726,6 +726,169 @@ func main() {
 			quality.GET("/reports", h.Quality.GetReports)
 		}
 
+		// ── Helpdesk / Support ────────────────────────────────────────────────
+		helpdesk := api.Group("/helpdesk")
+		{
+			// Dashboard
+			helpdesk.GET("/dashboard", h.Helpdesk.GetDashboard)
+
+			// Tickets
+			helpdesk.GET("/tickets", h.Helpdesk.ListTickets)
+			helpdesk.GET("/tickets/:id", h.Helpdesk.GetTicket)
+			helpdesk.POST("/tickets", h.Helpdesk.CreateTicket)
+			helpdesk.PUT("/tickets/:id", h.Helpdesk.UpdateTicket)
+			helpdesk.PUT("/tickets/:id/status", h.Helpdesk.UpdateTicketStatus)
+			helpdesk.DELETE("/tickets/:id", h.Helpdesk.DeleteTicket)
+
+			// Ticket Comments
+			helpdesk.POST("/tickets/:id/comments", h.Helpdesk.AddComment)
+
+			// Ticket Assignments
+			helpdesk.GET("/assignments", h.Helpdesk.ListAssignments)
+			helpdesk.POST("/tickets/:id/assign", h.Helpdesk.AssignTicket)
+
+			// Categories
+			helpdesk.GET("/categories", h.Helpdesk.ListCategories)
+			helpdesk.POST("/categories", h.Helpdesk.CreateCategory)
+			helpdesk.PUT("/categories/:id", h.Helpdesk.UpdateCategory)
+			helpdesk.DELETE("/categories/:id", h.Helpdesk.DeleteCategory)
+
+			// Agents
+			helpdesk.GET("/agents", h.Helpdesk.ListAgents)
+			helpdesk.POST("/agents", h.Helpdesk.CreateAgent)
+			helpdesk.PUT("/agents/:id", h.Helpdesk.UpdateAgent)
+			helpdesk.DELETE("/agents/:id", h.Helpdesk.DeleteAgent)
+
+			// Escalations
+			helpdesk.GET("/escalations", h.Helpdesk.ListEscalations)
+			helpdesk.POST("/escalations", h.Helpdesk.CreateEscalation)
+			helpdesk.PUT("/escalations/:id/status", h.Helpdesk.UpdateEscalationStatus)
+			helpdesk.DELETE("/escalations/:id", h.Helpdesk.DeleteEscalation)
+
+			// SLA Policies
+			helpdesk.GET("/sla-policies", h.Helpdesk.ListSLAPolicies)
+			helpdesk.POST("/sla-policies", h.Helpdesk.CreateSLAPolicy)
+			helpdesk.PUT("/sla-policies/:id", h.Helpdesk.UpdateSLAPolicy)
+			helpdesk.DELETE("/sla-policies/:id", h.Helpdesk.DeleteSLAPolicy)
+			helpdesk.GET("/sla-tracking", h.Helpdesk.GetSLATracking)
+
+			// CSAT Surveys
+			helpdesk.GET("/csat", h.Helpdesk.ListCSAT)
+			helpdesk.POST("/csat", h.Helpdesk.CreateCSAT)
+
+			// Reports
+			helpdesk.GET("/reports", h.Helpdesk.GetReports)
+		}
+
+		// ── Assets Management ─────────────────────────────────────────────────────
+		assets := api.Group("/assets")
+		{
+			// Dashboard
+			assets.GET("/dashboard", h.Assets.GetDashboard)
+
+			// Fixed Assets
+			assets.GET("/assets", h.Assets.ListAssets)
+			assets.GET("/assets/:id", h.Assets.GetAsset)
+			assets.POST("/assets", h.Assets.CreateAsset)
+			assets.PUT("/assets/:id", h.Assets.UpdateAsset)
+			assets.DELETE("/assets/:id", h.Assets.DeleteAsset)
+			assets.POST("/assets/:id/dispose", h.Assets.DisposeAsset)
+
+			// Categories
+			assets.GET("/categories", h.Assets.ListCategories)
+			assets.POST("/categories", h.Assets.CreateCategory)
+			assets.PUT("/categories/:id", h.Assets.UpdateCategory)
+			assets.DELETE("/categories/:id", h.Assets.DeleteCategory)
+
+			// Locations
+			assets.GET("/locations", h.Assets.ListLocations)
+			assets.POST("/locations", h.Assets.CreateLocation)
+			assets.PUT("/locations/:id", h.Assets.UpdateLocation)
+			assets.DELETE("/locations/:id", h.Assets.DeleteLocation)
+
+			// Transfers
+			assets.GET("/transfers", h.Assets.ListTransfers)
+			assets.POST("/transfers", h.Assets.CreateTransfer)
+			assets.PUT("/transfers/:id/approve", h.Assets.ApproveTransfer)
+			assets.PUT("/transfers/:id/complete", h.Assets.CompleteTransfer)
+			assets.DELETE("/transfers/:id", h.Assets.DeleteTransfer)
+
+			// Depreciation
+			assets.GET("/depreciation", h.Assets.ListDepreciation)
+			assets.POST("/depreciation/generate", h.Assets.GenerateDepreciation)
+			assets.POST("/depreciation/post", h.Assets.PostDepreciation)
+
+			// Maintenance
+			assets.GET("/maintenance", h.Assets.ListMaintenance)
+			assets.POST("/maintenance", h.Assets.CreateMaintenance)
+			assets.PUT("/maintenance/:id", h.Assets.UpdateMaintenance)
+			assets.PUT("/maintenance/:id/complete", h.Assets.CompleteMaintenance)
+			assets.DELETE("/maintenance/:id", h.Assets.DeleteMaintenance)
+
+			// Reports
+			assets.GET("/reports", h.Assets.GetReports)
+		}
+
+		// ── Budgeting & Planning ──────────────────────────────────────
+		budgeting := api.Group("/budgeting")
+		{
+			budgeting.GET("/dashboard", h.Budgeting.GetDashboard)
+
+			// Categories
+			budgeting.GET("/categories", h.Budgeting.ListBudgetCategories)
+			budgeting.POST("/categories", h.Budgeting.CreateBudgetCategory)
+			budgeting.PUT("/categories/:id", h.Budgeting.UpdateBudgetCategory)
+			budgeting.DELETE("/categories/:id", h.Budgeting.DeleteBudgetCategory)
+
+			// Annual Budgets
+			budgeting.GET("/annual", h.Budgeting.ListAnnualBudgets)
+			budgeting.GET("/annual/:id", h.Budgeting.GetAnnualBudget)
+			budgeting.POST("/annual", h.Budgeting.CreateAnnualBudget)
+			budgeting.PUT("/annual/:id", h.Budgeting.UpdateAnnualBudget)
+			budgeting.DELETE("/annual/:id", h.Budgeting.DeleteAnnualBudget)
+			budgeting.PUT("/annual/:id/approve", h.Budgeting.ApproveBudget)
+			budgeting.PUT("/annual/:id/lock", h.Budgeting.LockBudget)
+
+			// Line Items
+			budgeting.GET("/line-items", h.Budgeting.ListLineItems)
+			budgeting.POST("/line-items", h.Budgeting.CreateLineItem)
+			budgeting.PUT("/line-items/:id", h.Budgeting.UpdateLineItem)
+			budgeting.DELETE("/line-items/:id", h.Budgeting.DeleteLineItem)
+
+			// Department Budgets
+			budgeting.GET("/departments", h.Budgeting.ListDepartmentBudgets)
+			budgeting.POST("/departments", h.Budgeting.CreateDepartmentBudget)
+			budgeting.PUT("/departments/:id", h.Budgeting.UpdateDepartmentBudget)
+			budgeting.DELETE("/departments/:id", h.Budgeting.DeleteDepartmentBudget)
+
+			// Budget vs Actual
+			budgeting.GET("/vs-actual", h.Budgeting.GetBudgetVsActual)
+
+			// Revisions
+			budgeting.GET("/revisions", h.Budgeting.ListRevisions)
+			budgeting.POST("/revisions", h.Budgeting.CreateRevision)
+			budgeting.PUT("/revisions/:id", h.Budgeting.UpdateRevision)
+			budgeting.PUT("/revisions/:id/approve", h.Budgeting.ApproveRevision)
+			budgeting.DELETE("/revisions/:id", h.Budgeting.DeleteRevision)
+
+			// Commitments
+			budgeting.GET("/commitments", h.Budgeting.ListCommitments)
+			budgeting.POST("/commitments", h.Budgeting.CreateCommitment)
+			budgeting.PUT("/commitments/:id", h.Budgeting.UpdateCommitment)
+			budgeting.PUT("/commitments/:id/approve", h.Budgeting.ApproveCommitment)
+			budgeting.PUT("/commitments/:id/fulfill", h.Budgeting.FulfillCommitment)
+			budgeting.PUT("/commitments/:id/cancel", h.Budgeting.CancelCommitment)
+			budgeting.DELETE("/commitments/:id", h.Budgeting.DeleteCommitment)
+
+			// Actuals
+			budgeting.GET("/actuals", h.Budgeting.ListActuals)
+			budgeting.POST("/actuals", h.Budgeting.CreateActual)
+			budgeting.POST("/actuals/post", h.Budgeting.PostActuals)
+
+			// Reports
+			budgeting.GET("/reports", h.Budgeting.GetReports)
+		}
+
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"

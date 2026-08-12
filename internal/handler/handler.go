@@ -45,6 +45,9 @@ type Handler struct {
 	Maintenance  *MaintenanceHandler
 	Fleet        *FleetHandler
 	Quality      *QualityHandler
+	Helpdesk     *HelpdeskHandler
+	Assets       *AssetsHandler
+	Budgeting    *BudgetingHandler
 }
 
 // NewHandler constructs all handlers with a shared DB pool
@@ -69,6 +72,9 @@ func NewHandler(db *pgxpool.Pool) *Handler {
 	h.Maintenance = &MaintenanceHandler{db: db}
 	h.Fleet = &FleetHandler{db: db}
 	h.Quality = &QualityHandler{db: db}
+	h.Helpdesk = &HelpdeskHandler{db: db}
+	h.Assets = &AssetsHandler{db: db}
+	h.Budgeting = &BudgetingHandler{db: db}
 	return h
 }
 
