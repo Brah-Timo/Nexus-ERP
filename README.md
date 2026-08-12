@@ -2,6 +2,13 @@
 # Nexus ERP
 
 
+
+
+<img width="1509" height="823" alt="image" src="https://github.com/user-attachments/assets/cc532996-18c2-46d5-b96e-4e4458c250a7" />
+
+
+
+
 **Ultra-Professional Algerian ERP System — Single Binary Deployment**
 
 > A complete Enterprise Resource Planning solution built with Go + Vue 3, packaged as a single executable with zero external dependencies (except PostgreSQL).
@@ -84,7 +91,6 @@ nexus-erp.exe        # Windows
 # Login: admin / Admin@123456
 ```
 
-<img width="1509" height="823" alt="image" src="https://github.com/user-attachments/assets/cc532996-18c2-46d5-b96e-4e4458c250a7" />
 
 ### CRM
 <img width="1508" height="822" alt="image" src="https://github.com/user-attachments/assets/b9a3bcbc-e46f-43dd-93ac-1cd7ab72c9ef" />
